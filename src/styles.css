@@ -1,0 +1,488 @@
+/* Variables */
+:root {
+  --primary-color: #e74c3c;
+  --secondary-color: #333;
+  --background-color: #f4f4f9;
+  --text-color: #333;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --transition-duration: 0.3s;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: url("rcc.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  animation: background-move 10s infinite alternate;
+}
+
+@keyframes background-move {
+  0% {
+    background-position: center center;
+  }
+  100% {
+    background-position: center top;
+  }
+}
+
+/* Container Styles */
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  box-shadow: 0 0 15px var(--shadow-color);
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  transition: transform var(--transition-duration);
+}
+
+.container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px var(--shadow-color);
+}
+
+/* Header Styles */
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: var(--text-color);
+  font-weight: bold;
+  text-shadow: 0 1px 2px var(--shadow-color);
+  animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 15px var(--shadow-color);
+  transition: transform var(--transition-duration);
+}
+
+form:hover {
+  transform: translateY(-5px);
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #555;
+  transition: color var(--transition-duration);
+}
+
+form:hover label {
+  color: var(--primary-color);
+}
+
+form input,
+form select,
+form button,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: border-color var(--transition-duration),
+    box-shadow var(--transition-duration);
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+  outline: none;
+}
+
+form button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color var(--transition-duration),
+    transform var(--transition-duration), box-shadow var(--transition-duration);
+  animation: pulse 1.5s infinite;
+}
+
+form button:hover {
+  background-color: #c0392b;
+}
+
+form button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+  }
+}
+
+/* Container Visual Flair */
+.container::after,
+.container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: var(--primary-color);
+  transition: transform var(--transition-duration);
+}
+
+.container::after {
+  bottom: 0;
+  border-radius: 0 0 10px 10px;
+}
+
+.container::before {
+  top: 0;
+  border-radius: 10px 10px 0 0;
+}
+
+/* Earthquake Animation */
+.earthquake {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: earthquake 2s infinite;
+}
+
+@keyframes earthquake {
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate(-48%, -48%);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate(-52%, -52%);
+  }
+}
+
+@keyframes form-earthquake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+/* Shake Effect on Submit */
+form button:active {
+  animation: form-earthquake 0.5s;
+}
+
+/* Building Image Styles */
+.building {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 20px;
+  animation: building-shake 2s infinite;
+}
+
+@keyframes building-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(2px);
+  }
+}
+
+/* Tooltip on Hover */
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  color: var(--primary-color);
+  margin-left: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateY(-5px);
+}
+
+.tooltip:hover::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth Scroll to Form */
+.scroll-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.scroll-link:hover {
+  text-decoration: underline;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Form Validation Animation */
+.invalid {
+  border-color: red;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-10px);
+  }
+  40%,
+  80% {
+    transform: translateX(10px);
+  }
+}
+
+form.shake {
+  animation: shake 0.5s;
+}
+
+/* Loading Spinner */
+.spinner {
+  display: none; /* Initially hidden */
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Overlay to block interaction */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+}
+
+/* Show overlay when form is incomplete */
+.overlay.active {
+  display: flex;
+}
+
+/* Form shaking for incomplete indication */
+@keyframes form-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+form.incomplete {
+  animation: form-shake 0.5s;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f4f4f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  border: 3px solid #f4f4f9;
+}
+
+/* Glow Effects */
+form input:focus,
+form select:focus,
+form textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.5), 0 0 10px rgba(231, 76, 60, 0.5);
+  outline: none;
+}
+
+form button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color var(--transition-duration),
+    transform var(--transition-duration), box-shadow var(--transition-duration);
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.5), 0 0 10px rgba(231, 76, 60, 0.5);
+}
+
+form button:hover {
+  background-color: #c0392b;
+  box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+}
+
+form button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Dynamic Background Gradient Overlay */
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(231, 76, 60, 0.7),
+    rgba(39, 60, 117, 0.7)
+  );
+  opacity: 0.5;
+  z-index: -1;
+  animation: gradient-animation 5s infinite alternate;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background: linear-gradient(
+      120deg,
+      rgba(231, 76, 60, 0.7),
+      rgba(39, 60, 117, 0.7)
+    );
+  }
+  100% {
+    background: linear-gradient(
+      120deg,
+      rgba(39, 60, 117, 0.7),
+      rgba(231, 76, 60, 0.7)
+    );
+  }
+}
+
+.backLink:hover {
+  color: #c0392b;
+}
