@@ -9,10 +9,13 @@ const Page5 = () => {
   console.log(data);
 
   const createPDF = async () => {
-    const pdf = new jsPDF("portrait", "pt", "a4");
-    const data = await document.getElementById("container1");
-    pdf.html(data).then(() => {
-      pdf.save("earthquake_score.pdf");
+    const input = document.getElementById("container1");
+    html2canvas(input).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, "JPEG", 0, 0);
+      // pdf.output('dataurlnewwindow');
+      pdf.save("Earthquake Risk Score.pdf");
     });
   };
   return (
