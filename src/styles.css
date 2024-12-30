@@ -47,6 +47,28 @@ body {
   transition: transform var(--transition-duration);
 }
 
+.image {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.saveAsPDF {
+  margin: auto;
+  background-color: #cd5c5c;
+  width: fit-content;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  transition: all;
+  transition-duration: 300ms;
+}
+
+.saveAsPDF:hover {
+  background-color: #d03636;
+}
+
 .container:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px var(--shadow-color);

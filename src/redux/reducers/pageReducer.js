@@ -4,6 +4,7 @@ const initialState = {
   name: "",
   address: "",
   date: "",
+  image: "",
   numOfStories: "",
   ageOfBuilding: "",
   softStory: "",
@@ -25,6 +26,7 @@ export default (state = initialState, action) => {
         name: action.payload.name,
         address: action.payload.address,
         date: action.payload.date,
+        image: action.payload.selectedImage,
       };
     case types.ADD_PAGE_TWO:
       console.log("FROM REDUCER", action.payload);
