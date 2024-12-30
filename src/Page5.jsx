@@ -19,7 +19,7 @@ const Page5 = () => {
         Date: <span style={{ fontWeight: "600" }}>{data?.date}</span>
       </p>
       <p>
-        Eaethquake Risk Score:{" "}
+        Earthquake Risk Score:{" "}
         <span style={{ fontWeight: "600" }}>{data?.earthquakeRiskScore}</span>
       </p>
       <span
